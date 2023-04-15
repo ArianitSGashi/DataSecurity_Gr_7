@@ -31,5 +31,13 @@ public class Des {
         System.out.print("Zgjedhni text ose file : ");//varet prej userit
         String fromuser=input.nextLine();
         fromuser=fromuser.toLowerCase();
+        if(fromuser.equals("text")){
+            text();
+        }
+        else if(fromuser.equals("file")){
+            file();
+        }
+        else
+            System.out.print("\nGabim!!!");
     }
 }
