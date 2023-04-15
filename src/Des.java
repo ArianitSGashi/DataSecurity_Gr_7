@@ -76,4 +76,15 @@ public class Des {
         input.close();
     }
 
+    //----------------------------------------TEXT ENCRYPTION/DECRYPTION----------------------------------------------//
+    public static String encrypt(Cipher cipher, String plainStr) throws BadPaddingException,IllegalBlockSizeException
+    {
+        byte[] plainBytes;
+        byte[] encryptedBytes;
+        plainBytes=plainStr.getBytes(StandardCharsets.UTF_8);//stringun e marr si parameter hyres e kthen ne byte dhe e vendos ne plainbytes
+        encryptedBytes=cipher.doFinal(plainBytes);//me ane te do finel enkriptohet ne cipher qe e kemi inicializu kete rast encrypt
+        //return new String(encryptedBytes,StandardCharsets.ISO_8859_1);
+        return Base64.getEncoder().encodeToString(encryptedBytes);//konverton encrypted text nga byte ne string dhe kthen si rez
+    }
+
     }
