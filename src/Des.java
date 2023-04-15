@@ -1,10 +1,12 @@
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.AlgorithmParameterSpec;
+import java.util.Base64;
 import java.util.Scanner;
 
 public class Des {
@@ -85,6 +87,14 @@ public class Des {
         encryptedBytes=cipher.doFinal(plainBytes);//me ane te do finel enkriptohet ne cipher qe e kemi inicializu kete rast encrypt
         //return new String(encryptedBytes,StandardCharsets.ISO_8859_1);
         return Base64.getEncoder().encodeToString(encryptedBytes);//konverton encrypted text nga byte ne string dhe kthen si rez
+    }
+
+    public static String decrypt(Cipher cipher,String encryptedStr) throws BadPaddingException,IllegalBlockSizeException
+    {
+        byte[] encryptedBytes= Base64.getDecoder().decode(encryptedStr);//dekodon stringun encryptedstr
+        //byte[] encryptedBytes=encryptedStr.getBytes(StandardCharsets.ISO_8859_1);
+        byte[] decryptedBytes=cipher.doFinal(encryptedBytes);//e dekripton ne siq e kemi inicaializu cipher
+        return new String(decryptedBytes, StandardCharsets.UTF_8);//kthen decrypted data ne string dhe e vendos ne rez
     }
 
     }
