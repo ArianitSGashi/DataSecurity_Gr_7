@@ -1,6 +1,8 @@
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -95,6 +97,15 @@ public class Des {
         //byte[] encryptedBytes=encryptedStr.getBytes(StandardCharsets.ISO_8859_1);
         byte[] decryptedBytes=cipher.doFinal(encryptedBytes);//e dekripton ne siq e kemi inicaializu cipher
         return new String(decryptedBytes, StandardCharsets.UTF_8);//kthen decrypted data ne string dhe e vendos ne rez
+    }
+
+    //----------------------------------------FILE ENCRYPTION/DECRYPTION----------------------------------------------//
+    private static void encryption(InputStream input, OutputStream output)
+            throws IOException
+    {
+        output = new CipherOutputStream(output, encrypt);//CipherOutputStream kominim mes Cipher dhe OutputStream qe merr si paramtere file ku ka me vendos tekstin e enkriptun dhe parametri tjeter specifikon modin
+        //calling the writeBytes() method to write the encrypted bytes to the file
+        writeBytes(input, output);//path prej ku kemi me marr filen per enkriptim dhe path ku kemi me vendos filen e enkriptuar
     }
 
     }
