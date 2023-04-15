@@ -1,8 +1,6 @@
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -30,6 +28,12 @@ public class Des {
         encrypt=Cipher.getInstance("DES/CBC/PKCS5Padding");//me ane te getInstace specifikojm llojin e algoritmit qe perdorim ne rastintone
         //modin CBC dhe padding PKCS5Padding"
         decrypt= Cipher.getInstance("DES/CBC/PKCS5Padding");
+
+        // Initialize the cipher for encryption and decryption
+        encrypt.init(Cipher.ENCRYPT_MODE, scrtkey,aps);
+        //pasi qe kemi cbc mode atehere per ta inicalizuar si parameter hyres perveq caktimi i modit se
+        //a eshte enkriptim apo dekriptim dhe qelsit duhet ta vendosim edhe IV
+        decrypt.init(Cipher.DECRYPT_MODE, scrtkey,aps);
 
         //----------------------------------------TEXT/FILE ENCRYPTION/DECRYPTION----------------------------------------------//
         System.out.print("Zgjedhni text ose file : ");//varet prej userit
@@ -134,4 +138,4 @@ public class Des {
         input.close();
     }
 
-    }
+}
