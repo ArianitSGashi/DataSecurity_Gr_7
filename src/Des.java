@@ -1,8 +1,10 @@
 import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.AlgorithmParameterSpec;
 import java.util.Scanner;
 
 public class Des {
@@ -19,5 +21,10 @@ public class Des {
         Scanner input = new Scanner(System.in);
         SecretKey scrtkey = KeyGenerator.getInstance("DES").generateKey();//Gjeneron nje secret(symetric)key me ane te implenetimit te libraris javax.crypto
         //getInstance("DES") specifikon se qelsi i gjeneruar eshte des key
+        AlgorithmParameterSpec aps = new IvParameterSpec(initialization_vector);//krijon nje objekt duke perdorur bytes of initialization_vector si IV
+        //Cipher  class siguron funksionalitetin e kriptografis per enkriptim dhe dekriptim
+        encrypt=Cipher.getInstance("DES/CBC/PKCS5Padding");//me ane te getInstace specifikojm llojin e algoritmit qe perdorim ne rastintone
+        //modin CBC dhe padding PKCS5Padding"
+        decrypt= Cipher.getInstance("DES/CBC/PKCS5Padding");
     }
 }
