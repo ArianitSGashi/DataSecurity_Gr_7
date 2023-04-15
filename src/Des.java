@@ -117,4 +117,21 @@ public class Des {
         writeBytes(input, output);
     }
 
+    //method for writting bytes to the files
+    private static void writeBytes(InputStream input, OutputStream output)
+            throws IOException
+    {
+        byte[] writeBuffer = new byte[512];//write buffer per me shenu me gjatesi 512
+        int readBytes;
+        while ((readBytes = input.read(writeBuffer)) >= 0)//lexon te dhenat nga input deri sa ato te jen te barabart me 0 dhe ishenon ato ne readbyte
+        {
+            output.write(writeBuffer, 0, readBytes);//ne output i vendos tekstin e lexun
+        }
+
+        //closing the output stream
+        output.close();
+        //closing the input stream
+        input.close();
+    }
+
     }
