@@ -40,4 +40,20 @@ public class Des {
         else
             System.out.print("\nGabim!!!");
     }
+
+    //----------------------------------------TEXT/FILE ENCRYPTION/DECRYPTION-----------------------------------------//
+    public static void text() throws BadPaddingException, IllegalBlockSizeException {
+
+        Scanner input=new Scanner(System.in);
+        System.out.print("Text:");
+        String plain=input.nextLine();
+
+        String encrypted = encrypt(encrypt, plain);
+        System.out.println("Encrypted text: " + encrypted);
+
+        String decrypted = decrypt(decrypt, encrypted);
+        System.out.println("Decrypted text: " + decrypted);
+        input.close();
+    }
+
 }
