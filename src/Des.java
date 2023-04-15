@@ -71,6 +71,9 @@ public class Des {
         encryption(new FileInputStream(textFile), new FileOutputStream(encryptedData));//parameter hyres e ka file i cili duhet te enkriptohet dhe file ku duhet me vendos filen e enkriptuar
         //calling decrypt() method to decrypt the file
         decryption(new FileInputStream(encryptedData), new FileOutputStream(decryptedData));//parameter hyres ka filen e enkriptuar dhe filen ku ka me vendos filen e dekriptuar
-
+        //prints the statement if the program runs successfully
+        System.out.println("The encrypted and decrypted files have been created successfully.");
+        input.close();
+    }
 
     }
