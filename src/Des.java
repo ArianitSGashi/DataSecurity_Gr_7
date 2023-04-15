@@ -108,4 +108,13 @@ public class Des {
         writeBytes(input, output);//path prej ku kemi me marr filen per enkriptim dhe path ku kemi me vendos filen e enkriptuar
     }
 
+    //method for decryption
+    private static void decryption(InputStream input, OutputStream output)
+            throws IOException
+    {
+        input = new CipherInputStream(input, decrypt);//parametri pare file i enkriptuar dhe parametri i dyte modi
+        //calling the writeBytes() method to write the decrypted bytes to the file
+        writeBytes(input, output);
+    }
+
     }
