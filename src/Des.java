@@ -26,5 +26,10 @@ public class Des {
         encrypt=Cipher.getInstance("DES/CBC/PKCS5Padding");//me ane te getInstace specifikojm llojin e algoritmit qe perdorim ne rastintone
         //modin CBC dhe padding PKCS5Padding"
         decrypt= Cipher.getInstance("DES/CBC/PKCS5Padding");
+
+        //----------------------------------------TEXT/FILE ENCRYPTION/DECRYPTION----------------------------------------------//
+        System.out.print("Zgjedhni text ose file : ");//varet prej userit
+        String fromuser=input.nextLine();
+        fromuser=fromuser.toLowerCase();
     }
 }
