@@ -56,4 +56,13 @@ public class Des {
         input.close();
     }
 
-}
+    public static void file() throws IOException {
+        Scanner input=new Scanner(System.in);
+        System.out.print("File to encrypt:");
+        String textFile=input.nextLine();
+
+        System.out.print("Where to save encrypted file:");
+        String encryptedData =input.nextLine();
+
+
+    }
