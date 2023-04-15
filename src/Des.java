@@ -64,5 +64,13 @@ public class Des {
         System.out.print("Where to save encrypted file:");
         String encryptedData =input.nextLine();
 
+        System.out.print("Where to save decrypted file:");
+        String decryptedData = input.nextLine();
+
+        //calling encrypt() method to encrypt the file
+        encryption(new FileInputStream(textFile), new FileOutputStream(encryptedData));//parameter hyres e ka file i cili duhet te enkriptohet dhe file ku duhet me vendos filen e enkriptuar
+        //calling decrypt() method to decrypt the file
+        decryption(new FileInputStream(encryptedData), new FileOutputStream(decryptedData));//parameter hyres ka filen e enkriptuar dhe filen ku ka me vendos filen e dekriptuar
+
 
     }
